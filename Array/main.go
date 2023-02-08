@@ -18,3 +18,15 @@ func intersection(nums1 []int, nums2 []int) []int {
 	}
 	return a
 }
+
+func containsDuplicate(nums []int) bool {
+	hashmap := make(map[int]int)
+	for _, v := range nums {
+		_, ok := hashmap[v]
+		if ok {
+			return true
+		}
+		hashmap[v]++
+	}
+	return false
+}

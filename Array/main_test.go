@@ -30,3 +30,20 @@ func TestIntersection(t *testing.T) {
 	require.Equal(t, map2, map3)
 
 }
+
+func TestContainsDuplicate(t *testing.T) {
+	chek := [][]int{{1, 2, 3, 1}, {1, 2, 3, 4}, {1, 1, 1, 3, 3, 4, 3, 2, 4, 2}}
+	result := []bool{true, false, true}
+	if len(chek) < 0 {
+		t.Error("Chek the your data is empty", chek)
+	} else if len(result) != len(chek) {
+		t.Error("not enter your output", result)
+	} else {
+		i := 0
+		for _, v := range chek {
+			result2 := containsDuplicate(v)
+			require.Equal(t, result[i], result2)
+			i++
+		}
+	}
+}
