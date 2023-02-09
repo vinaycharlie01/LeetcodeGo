@@ -47,3 +47,26 @@ func TestContainsDuplicate(t *testing.T) {
 		}
 	}
 }
+
+func TestCal(t *testing.T) {
+	testcases := []struct {
+		name  string
+		input []int
+		resut bool
+	}{{
+		name:  "testcase1",
+		input: []int{1, 2, 3, 1},
+		resut: true,
+	}, {
+		name:  "testcase2",
+		input: []int{1, 2, 3, 4},
+		resut: true,
+	}}
+
+	for _, v := range testcases {
+		result := containsDuplicate(v.input)
+		if result != v.resut {
+
+		}
+	}
+}
