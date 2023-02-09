@@ -275,6 +275,15 @@ type SortedMap struct {
 	adress *ListNode
 }
 
+func Recone(a string, dp map[string]int) map[string]int {
+	if len(a) > 0 {
+		dp[string(a[len(a)-1:])]++
+		a = a[:len(a)-1]
+		return Recone(a, dp)
+	}
+	return dp
+}
+
 // func deleteDuplicates(head *ListNode) *ListNode {
 // 	if head == nil {
 // 		return head
@@ -334,28 +343,29 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 
 */
 
-func maxCount(banned []int, n int, maxSum int) {
+// func maxCount(banned []int, n int, maxSum int) {
 
-	hashmap := make(map[int]int)
-	for i, v := range banned {
-		hashmap[v] = i
-	}
-	for i := 1; i < n; i++ {
-		_, ok := hashmap[i]
-		if !ok {
-			fmt.Println(i)
-			j++
-		}
-	}
-	fmt.Println(j)
-	//fmt.Println(count)
-	// fmt.Println(hashmap)
+// 	hashmap := make(map[int]int)
+// 	for i, v := range banned {
+// 		hashmap[v] = i
+// 	}
+// 	for i := 1; i < n; i++ {
+// 		_, ok := hashmap[i]
+// 		if !ok {
+// 			fmt.Println(i)
+// 			j++
+// 		}
+// 	}
+// 	fmt.Println(j)
+// 	//fmt.Println(count)
+// 	// fmt.Println(hashmap)
 
-}
+// }
 
 func main() {
-	a := []int{1, 6, 5}
-	maxCount(a, 5, 6)
+	fmt.Println(Recone("Bharath", map[string]int{}))
+	// a := []int{1, 6, 5}
+	// maxCount(a, 5, 6)
 	// PrifixSum(a)
 	// s := map[int]string{1: "fnhfh", 2: "fnfn", 3: "fnfn", 4: "fjf", 5: "fdndj"}
 	// delete(s, 1)
