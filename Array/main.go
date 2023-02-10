@@ -1,5 +1,10 @@
 package main
 
+import (
+	"sort"
+	"sync"
+)
+
 func intersection(nums1 []int, nums2 []int) []int {
 	Hashmap := make(map[int]int)
 	for i, val := range nums2 {
@@ -29,4 +34,15 @@ func containsDuplicate(nums []int) bool {
 		hashmap[v]++
 	}
 	return false
+}
+
+func findKthLargest(nums []int, k int) int {
+
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		sort.Ints(nums)
+	}()
+	wg.Wait()
+	return nums[len(nums)-k]
 }

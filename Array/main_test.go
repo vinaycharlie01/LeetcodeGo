@@ -70,3 +70,48 @@ func TestCal(t *testing.T) {
 		}
 	}
 }
+
+type dd struct {
+	data []int
+	k    int
+}
+
+type Test struct {
+	cases     string
+	userinput dd
+	want      int
+}
+
+func TestFindKthLargest(t *testing.T) {
+	a := []Test{{
+		cases:     "test1",
+		userinput: dd{[]int{3, 2, 1, 5, 6, 4}, 2},
+		want:      5,
+	}, {
+		cases:     "test2",
+		userinput: dd{[]int{3, 2, 3, 1, 2, 4, 5, 5, 6}, 4},
+		want:      4,
+	}, {
+		cases:     "test3",
+		userinput: dd{[]int{1, 2, 3, 4, 9, 7, 5, 3}, 3},
+		want:      5,
+	}, {
+		cases:     "test4",
+		userinput: dd{[]int{1, 2, 3, 4, 9, 7, 5, 3}, 6},
+		want:      3,
+	}, {
+		cases:     "test5",
+		userinput: dd{[]int{1, 2, 3, 4, 9, 7, 5, 3}, 2},
+		want:      7,
+	}, {
+		cases:     "test6",
+		userinput: dd{[]int{1}, 1},
+		want:      1,
+	}}
+	for _, v := range a {
+		result := findKthLargest(v.userinput.data, v.userinput.k)
+		if result != v.want {
+			t.Errorf("Error on %v: got %v, want %v", v.cases, result, v.want)
+		}
+	}
+}

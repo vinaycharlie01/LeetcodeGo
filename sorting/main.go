@@ -66,11 +66,3 @@ func thirdMax(nums []int) int {
 		return a[len(a)-3]
 	}
 }
-func main() {
-	a := []int{1, 3, 1}
-	thirdMax(a)
-	// a = MergeSort(a)
-
-	//go BubbleSort(b)
-	// fmt.Println(a)
-}
