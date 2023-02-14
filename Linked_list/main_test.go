@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"reflect"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -14,6 +16,12 @@ type userinput struct {
 
 type Want struct {
 	data []int
+}
+
+type Addtwonum struct {
+	num1 []int
+	num2 []int
+	want []int
 }
 
 func Test_partition(t *testing.T) {
@@ -81,4 +89,34 @@ func Test_partition(t *testing.T) {
 	// 	})
 	// }
 
+}
+
+func TestAddTwoNum(t *testing.T) {
+	a := []Addtwonum{
+		{
+			num1: []int{2, 4, 3},
+			num2: []int{5, 6, 4},
+			want: []int{7, 0, 8},
+		},
+	}
+	for _, v := range a {
+		Link := new(ListNode)
+		temp := Link
+		for _, v := range v.num1 {
+			temp.Next = &ListNode{v, nil}
+			temp = temp.Next
+		}
+		Link2 := new(ListNode)
+		temp2 := Link2
+		for _, v := range v.num2 {
+			temp2.Next = &ListNode{v, nil}
+			temp2 = temp2.Next
+		}
+		res := addTwoNumbers(Link.Next, Link2.Next)
+		result := Display(res)
+		fmt.Println(result)
+		if !reflect.DeepEqual(result, v.want) {
+			t.Error()
+		}
+	}
 }

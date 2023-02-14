@@ -42,6 +42,36 @@ func partition(head *ListNode, x int) *ListNode {
 	return head
 }
 
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	sentinel := new(ListNode)
+	head := sentinel
+	carry, val := 0, 0
+	for l1 != nil || l2 != nil || carry != 0 {
+		val = carry + getVal(l1) + getVal(l2)
+		carry = val / 10
+		val = val % 10
+
+		head.Next = &ListNode{val, nil}
+		head = head.Next
+
+		if l1 != nil {
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			l2 = l2.Next
+		}
+	}
+
+	return sentinel.Next
+}
+
+func getVal(l *ListNode) int {
+	if l == nil {
+		return 0
+	}
+	return l.Val
+}
+
 // func main() {
 
 // 	a := []int{1, 4, 3, 0, 2, 5, 2}
