@@ -74,13 +74,13 @@ func getVal(l *ListNode) int {
 
 // func main() {
 
-// 	a := []int{1, 4, 3, 0, 2, 5, 2}
-// 	Link := new(ListNode)
-// 	temp := Link
-// 	for _, v := range a {
-// 		temp.Next = &ListNode{v, nil}
-// 		temp = temp.Next
-// 	}
-// 	k := 3
-// 	fmt.Println(Display(partition(Link.Next, k)))
+	// a := []int{1, 4, 3, 0, 2, 5, 2}
+	// Link := new(ListNode)
+	// temp := Link
+	// for _, v := range a {
+	// 	temp.Next = &ListNode{v, nil}
+	// 	temp = temp.Next
+	// }
+	// k := 3
+	// fmt.Println(Display(partition(Link.Next, k)))
 // }
