@@ -1,0 +1,12 @@
+# Compile the Golang application
+FROM golang:alpine AS builder
+
+RUN apk update && apk add --no-cache git
+WORKDIR /app
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+
+# Build the small image
+FROM scratch
+COPY --from=builder /app/app /app
+CMD ["/app"]
