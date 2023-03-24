@@ -474,3 +474,22 @@ func main() {
 // 	// wiggleSort(b)
 
 // }
+
+func groupAnagrams(a []string) [][]string {
+	dp := make(map[string][]string)
+	for i1 := 0; i1 < len(a); i1++ {
+		b := []byte(a[i1])
+		sort.Slice(b, func(i, j int) bool {
+			return b[i] < b[j]
+		})
+		// fmt.Println([]byte(a[i1]))
+		dp[string(b)] = append(dp[string(b)], a[i1])
+		// fmt.Println(b[i1])
+	}
+
+	var s [][]string
+	for _, v := range dp {
+		s = append(s, v)
+	}
+	return s
+}
