@@ -230,6 +230,24 @@ func TestMergeArrays(t *testing.T) {
 	}
 }
 
-func TestFindDisappearedNumbers(t *testing.T) {
+type TestCalPoint struct {
+	Name string
+	Data []string
+	Want int
+}
 
+func TestCalPoints(t *testing.T) {
+	a := []TestCalPoint{
+		{"test1", []string{"5", "2", "C", "D", "+"}, 30},
+		{"test2", []string{"5", "-2", "4", "C", "D", "9", "+", "+"}, 27},
+		{"test2", []string{"1", "C"}, 0},
+	}
+	for _, v := range a {
+		t.Run(v.Name, func(t *testing.T) {
+			result := CalPoints(v.Data)
+			if result != v.Want {
+				t.Errorf("  got %v, want %v", result, v.Want)
+			}
+		})
+	}
 }

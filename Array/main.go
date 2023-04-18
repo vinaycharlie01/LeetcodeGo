@@ -493,3 +493,45 @@ func groupAnagrams(a []string) [][]string {
 	}
 	return s
 }
+
+/*
+Input: ops = ["5","2","C","D","+"]
+Output: 30
+Explanation:
+"5" - Add 5 to the record, record is now [5].
+"2" - Add 2 to the record, record is now [5, 2].
+"C" - Invalidate and remove the previous score, record is now [5].
+"D" - Add 2 * 5 = 10 to the record, record is now [5, 10].
+"+" - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].
+The total sum is 5 + 10 + 15 = 30.
+
+*/
+func CalPoints(nums []string) int {
+	var res2 []int
+	for i := 0; i < len(nums); i++ {
+		res, err := strconv.Atoi(nums[i])
+		if err != nil {
+			if nums[i] == "D" {
+				r := res2[len(res2)-1]
+				res2 = append(res2, 2*r)
+			}
+			if nums[i] == "C" && i > 0 {
+				res2 = res2[:len(res2)-1]
+				// res2 = append(res2, )
+			}
+			if nums[i] == "+" && i > 1 {
+				fmt.Println(res2[len(res2)-1], res2[len(res2)-2])
+				res2 = append(res2, res2[len(res2)-1]+res2[len(res2)-2])
+			}
+		} else {
+			res2 = append(res2, res)
+		}
+	}
+	fmt.Println(res2)
+	var res int
+	for _, v := range res2 {
+		res += v
+	}
+	fmt.Println(res)
+	return res
+}
