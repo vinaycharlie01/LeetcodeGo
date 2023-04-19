@@ -2,6 +2,14 @@ package main
 
 import "strconv"
 
+type Stackfun interface {
+	Append(a int)
+	Pop()
+	AppendPlus()
+	Top() int
+	Sum() int
+}
+
 type Stack struct {
 	data []int
 }
@@ -29,23 +37,21 @@ func (s *Stack) Sum() int {
 }
 
 func CalPoints2(nums []string) int {
-	var res2 Stack
+	var res2 Stackfun
 	for i := 0; i < len(nums); i++ {
-		res, err := strconv.Atoi(nums[i])
-		if err != nil {
-			if nums[i] == "D" {
-				res2.Top()
-				res2.Append(2 * res2.Top())
-			}
-			if nums[i] == "C" && i > 1 {
-				res2.Pop()
-			}
-			if nums[i] == "+" && i > 1 {
-				res2.AppendPlus()
-			}
-		} else {
+		switch {
+		case nums[i] == "D":
+			res2.Top()
+			res2.Append(2 * res2.Top())
+		case nums[i] == "C" && i > 1:
+			res2.Pop()
+		case nums[i] == "+" && i > 1:
+			res2.AppendPlus()
+		default:
+			res, _ := strconv.Atoi(nums[i])
 			res2.Append(res)
 		}
+
 	}
 	return res2.Sum()
 }
