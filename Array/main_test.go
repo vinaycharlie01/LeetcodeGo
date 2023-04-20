@@ -251,3 +251,25 @@ func TestCalPoints(t *testing.T) {
 		})
 	}
 }
+
+type IsMonotonicinput struct {
+	Name  string
+	Input []int
+	Want  bool
+}
+
+func TestIsMonotonic(t *testing.T) {
+	Testcases := []IsMonotonicinput{
+		{Name: "test1", Input: []int{1, 2, 3, 4}, Want: true},
+		{Name: "test2", Input: []int{4, 3, 2, 1}, Want: true},
+		{Name: "test3", Input: []int{1, 3, 2, 1}, Want: false},
+	}
+	for _, v := range Testcases {
+		t.Run(v.Name, func(t *testing.T) {
+			res := IsMonotonic(v.Input)
+			if res != v.Want {
+				t.Errorf("  got %v, want %v", res, v.Want)
+			}
+		})
+	}
+}

@@ -535,3 +535,30 @@ func CalPoints(nums []string) int {
 	fmt.Println(res)
 	return res
 }
+
+func IsMonotonic(nums []int) bool {
+	if len(nums) == 1 {
+		return true
+	}
+	var a bool
+	for i := 0; i < len(nums)-1; i++ {
+		if nums[i] <= nums[i+1] {
+			a = true
+		} else {
+			a = false
+			break
+		}
+	}
+	if a != true {
+		for i := 0; i < len(nums)-1; i++ {
+			if nums[i] >= nums[i+1] {
+				a = true
+			} else {
+				a = false
+				break
+			}
+		}
+	}
+	fmt.Println(a)
+	return a
+}
