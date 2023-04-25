@@ -273,3 +273,28 @@ func TestIsMonotonic(t *testing.T) {
 		})
 	}
 }
+
+type Rotate2I struct {
+	Name  string
+	Input [][]int
+	Want  [][]int
+}
+
+func TestRotate(t *testing.T) {
+
+	a := []Rotate2I{
+		{
+			Name:  "test1",
+			Input: [][]int{{}, {}, {}},
+			Want:  [][]int{{}, {}, {}},
+		},
+	}
+	for _, v := range a {
+		t.Run(v.Name, func(t *testing.T) {
+			Rotate2(v.Input)
+			if reflect.DeepEqual(v.Input, v.Want) {
+				t.Errorf("  got %v, want %v", v.Input, v.Want)
+			}
+		})
+	}
+}

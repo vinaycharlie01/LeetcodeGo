@@ -442,29 +442,6 @@ func rotate(s []int, n int) {
 	}
 	fmt.Println(b)
 }
-func main() {
-	rotate([]int{1, 2, 3, 4, 5, 6, 7}, -1)
-	// passThePillow(6, 10)
-	// a := []int{10, 4, 8, 3}
-	// fmt.Println(Max(a))
-	// foo1(123)
-	// foo1(true)
-	// fmt.Println(len(m))
-
-	// a := [][]int{{1, 4}, {1, 6}, {5, 5}}
-	// b := [][]int{{1, 3}, {4, 3}}
-	// fmt.Println(mergeArrays(a, b))
-	// a := []int{0, 1, 7, 4, 4, 5}
-	// a := []int{1, 2, 3, 4}
-	// productExceptSelf(a)
-	// countFairPairs(a, 3, 6)
-
-	// nums1 = [1,2,2,1], nums2 = [2,2]
-	// a := []int{4, 9, 5}
-	// b := []int{9, 4, 9, 8, 4}
-	// fmt.Println(intersect(a, b))
-	// findDisappearedNumbers(a)
-}
 
 // func main() {
 
@@ -561,4 +538,56 @@ func IsMonotonic(nums []int) bool {
 	}
 	fmt.Println(a)
 	return a
+}
+
+func MoveZeroes(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 0 {
+			nums = append(nums[:i], nums[i+1:]...)
+			nums = append(nums, 0)
+		}
+
+	}
+	fmt.Println(nums)
+}
+
+func Rotate2(matrix [][]int) {
+	var b [][]int
+	for i := 0; i < len(matrix); i++ {
+		var a []int
+		for j := len(matrix) - 1; j >= 0; j-- {
+			a = append(a, matrix[j][i])
+		}
+		b = append(b, a)
+	}
+	copy(matrix, b)
+}
+
+func main() {
+	// a := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+
+	// rotate2(a)
+
+	// rotate([]int{1, 2, 3, 4, 5, 6, 7}, -1)
+	// passThePillow(6, 10)
+	// a := []int{10, 4, 8, 3}
+	// fmt.Println(Max(a))
+	// foo1(123)
+	// foo1(true)
+	// fmt.Println(len(m))
+
+	// a := [][]int{{1, 4}, {1, 6}, {5, 5}}
+	// b := [][]int{{1, 3}, {4, 3}}
+	// fmt.Println(mergeArrays(a, b))
+	// a := []int{0, 1, 7, 4, 4, 5}
+	// a := []int{1, 2, 3, 4}
+	// productExceptSelf(a)
+	// countFairPairs(a, 3, 6)
+
+	// nums1 = [1,2,2,1], nums2 = [2,2]
+	// a := []int{4, 9, 5}
+	// b := []int{9, 4, 9, 8, 4}
+	// fmt.Println(intersect(a, b))
+	// findDisappearedNumbers(a)
+
 }
