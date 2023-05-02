@@ -563,6 +563,38 @@ func Rotate2(matrix [][]int) {
 	copy(matrix, b)
 }
 
+func isWinner(player1 []int, player2 []int) int {
+	var count1 int
+	var count2 int
+	for i := 0; i < len(player1); i++ {
+		j := i - 1
+		j2 := i - 2
+		if j >= 0 && player1[j] == 10 {
+			count1 += 2 * player1[i]
+		} else if j2 >= 0 && player1[j2] == 10 {
+			count1 += 2 * player1[i]
+		} else {
+			count1 += player1[i]
+		}
+		if j >= 0 && player2[j] == 10 {
+			count2 += 2 * player2[i]
+
+		} else if j2 >= 0 && player2[j2] == 10 {
+			count2 += 2 * player2[i]
+		} else {
+			count2 += player2[i]
+		}
+
+	}
+	if count1 == count2 {
+		return 0
+	} else if count1 > count2 {
+		return 1
+	} else {
+		return 2
+	}
+}
+
 func main() {
 	// a := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
 
