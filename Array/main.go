@@ -563,7 +563,7 @@ func Rotate2(matrix [][]int) {
 	copy(matrix, b)
 }
 
-func isWinner(player1 []int, player2 []int) int {
+func IsWinner(player1 []int, player2 []int) int {
 	var count1 int
 	var count2 int
 	for i := 0; i < len(player1); i++ {
