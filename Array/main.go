@@ -597,27 +597,33 @@ func IsWinner(player1 []int, player2 []int) int {
 }
 
 func maxProduct(words []string) {
-	var a1 []int
+	// var a1 []int
+	var a int
 	for i := 0; i < len(words); i++ {
 		for j := len(words) - 1; j >= i; j-- {
 			if !strings.ContainsAny(words[i], words[j]) {
-				a1 = append(a1, len(words[i])*len(words[j]))
+				s1 := len(words[i]) * len(words[j])
+				if s1 > a {
+					a = s1
+				}
 			}
 		}
 	}
-	fmt.Println(a1)
-	sort.Ints(a1)
-	if a1 != nil {
-		fmt.Println(a1[len(a1)-1])
-	} else {
-		fmt.Println(0)
-	}
+	fmt.Println(a)
+	// sort.Ints(a1)
+	// if sort.Ints(a1); a1 != nil {
+	// 	fmt.Println(a1[len(a1)-1])
+	// } else {
+	// 	fmt.Println(0)
+	// }
 }
 
 func main() {
 
-	// a := []string{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"}
-	// maxProduct(a)
+	// fmt.Println(strings.ContainsAny("vinay", "kummr"))
+
+	a := []string{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"}
+	maxProduct(a)
 	// fmt.Println(strings.ContainsAny(a[0], a[4]))
 	// a := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
 
