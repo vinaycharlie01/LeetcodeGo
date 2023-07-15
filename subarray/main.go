@@ -33,7 +33,7 @@ func generateSubarrays(nums []int) [][]int {
 
 	return subarrays
 }
-func generateSubarrays(nums []int) [][]int {
+func generateSubarrays2(nums []int) [][]int {
 	result := [][]int{}
 	backtrack(nums, 0, []int{}, &result)
 	return result
