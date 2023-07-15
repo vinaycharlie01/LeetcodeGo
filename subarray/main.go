@@ -33,3 +33,18 @@ func generateSubarrays(nums []int) [][]int {
 
 	return subarrays
 }
+
+func GenerateSubarrays(nums []int) [][]int {
+	subarrays := [][]int{}
+	n := len(nums)
+
+	for length := 0; length <= n; length++ {
+		for start := 0; start+length <= n; start++ {
+			subarray := make([]int, length)
+			copy(subarray, nums[start:start+length])
+			subarrays = append(subarrays, subarray)
+		}
+	}
+
+	return subarrays
+}
