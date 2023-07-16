@@ -51,3 +51,23 @@ func backtrack(nums []int, start int, current []int, result *[][]int) {
 		current = current[:len(current)-1]    // Exclude the current element
 	}
 }
+
+func alternatingSubarray(nums []int) int {
+	n := len(nums)
+	res, dp := -1, -1
+	for i := 1; i < n; i++ {
+		if dp > 0 && nums[i] == nums[i-2] {
+			dp += 1
+		} else {
+			if nums[i] == nums[i-1]+1 {
+				dp = 2
+			} else {
+				dp = -1
+			}
+		}
+		if dp > res {
+			res = dp
+		}
+	}
+	return res
+}
