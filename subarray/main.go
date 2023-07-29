@@ -19,6 +19,7 @@ func Subsets(nums []int) [][]int {
 	return res
 }
 
+//genera
 func generateSubarrays(nums []int) [][]int {
 	subarrays := [][]int{}
 	n := len(nums)
