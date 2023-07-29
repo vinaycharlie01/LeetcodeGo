@@ -74,6 +74,9 @@ func main() {
 	// fmt.Println(a(10))
 
 }
+func hello() {
+
+}
 
 func Sub(a int) func(int) int {
 	return func(i int) int {
