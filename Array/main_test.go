@@ -298,3 +298,50 @@ func TestRotate(t *testing.T) {
 		})
 	}
 }
+
+type MetTheTarget struct {
+	Case  string
+	Input struct {
+		Hours  []int
+		Target int
+	}
+	Want int
+}
+
+func TestNumberOfEmployeesWhoMetTarget(t *testing.T) {
+	cases := []MetTheTarget{
+		{
+			Case: "case1",
+			Input: struct {
+				Hours  []int
+				Target int
+			}{
+
+				[]int{0, 1, 2, 3, 4},
+				2,
+			},
+			Want: 3,
+		},
+		{
+			Case: "case2",
+			Input: struct {
+				Hours  []int
+				Target int
+			}{
+
+				[]int{5, 1, 4, 2, 2},
+				6,
+			},
+			Want: 0,
+		},
+	}
+
+	for _, v := range cases {
+		t.Run(v.Case, func(t *testing.T) {
+			result := NumberOfEmployeesWhoMetTarget(v.Input.Hours, v.Input.Target)
+			if result != v.Want {
+				t.Errorf("  got %v, want %v", v.Input, v.Want)
+			}
+		})
+	}
+}
