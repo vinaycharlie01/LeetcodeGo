@@ -34,3 +34,25 @@ func TestSubsets(t *testing.T) {
 
 	}
 }
+
+func TestCountCompleteSubarrays(t *testing.T) {
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		// TODO: Add test cases.
+		{"test1", args{[]int{1, 3, 1, 2, 2}}, 4},
+		{"test2", args{[]int{5, 5, 5, 5}}, 10},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := CountCompleteSubarrays(tt.args.nums); got != tt.want {
+				t.Errorf("CountCompleteSubarrays() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

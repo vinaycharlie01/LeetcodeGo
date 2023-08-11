@@ -19,6 +19,7 @@ func Subsets(nums []int) [][]int {
 	return res
 }
 
+// genera
 func generateSubarrays(nums []int) [][]int {
 	subarrays := [][]int{}
 	n := len(nums)
@@ -33,6 +34,61 @@ func generateSubarrays(nums []int) [][]int {
 
 	return subarrays
 }
+
+/*
+n = len(nums)
+
+	distinct_elements = len(set(nums))
+	count = 0
+	left = 0
+	right = 0
+	counter = Counter()
+
+	while right < n:
+	    counter[nums[right]] += 1
+	    while len(counter) == distinct_elements:
+	        counter[nums[left]] -= 1
+	        if counter[nums[left]] == 0:
+	            del counter[nums[left]]
+	        left += 1
+	        count += n - right
+	    right += 1
+
+	return count
+*/
+func CountCompleteSubarrays(nums []int) int {
+	n := len(nums)
+	distinct_elements := map[int]int{}
+	count := 0
+	counter := map[int]int{}
+	for _, v := range nums {
+		distinct_elements[v]++
+	}
+	left := 0
+	right := 0
+	for right < n {
+		counter[nums[right]]++
+		for len(counter) == len(distinct_elements) {
+			counter[nums[left]]--
+			if counter[nums[left]] == 0 {
+				delete(counter, nums[left])
+			}
+			left++
+			count += n - right
+		}
+		right += 1
+
+	}
+	return count
+}
+
+func main() {
+	a := []int{5, 5, 5, 5}
+	// fmt.Println(a)
+	CountCompleteSubarrays(a)
+
+}
+
 func generateSubarrays2(nums []int) [][]int {
 	result := [][]int{}
 	backtrack(nums, 0, []int{}, &result)

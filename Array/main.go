@@ -121,7 +121,8 @@ func findMaxConsecutiveOnes(nums []int) {
 	fmt.Println(count)
 }
 
-/*Input: nums = [3,2,2,3], val = 3
+/*
+Input: nums = [3,2,2,3], val = 3
 Output: 2, nums = [2,2,_,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 2.
 It does not matter what you leave beyond the returned k (hence they are underscores).
@@ -131,7 +132,8 @@ Input: nums = [0,1,2,2,3,0,4,2], val = 2
 Output: 5, nums = [0,1,4,0,3,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
 Note that the five elements can be returned in any order.
-It does not matter what you leave beyond the returned k (hence they are underscores).*/
+It does not matter what you leave beyond the returned k (hence they are underscores).
+*/
 func removeElement(nums []int, val int) int {
 	i := 0
 	for true {
@@ -379,9 +381,9 @@ func Add(a string) {
 	fmt.Println(b)
 }
 
-//   s := "abb24ccc8ddbbca1"
-// fmt.Println(encode(s)) // output: "a1b224c3d2b2c1a11"
+//	s := "abb24ccc8ddbbca1"
 //
+// fmt.Println(encode(s)) // output: "a1b224c3d2b2c1a11"
 func Encode(a string) {
 	var right int
 	var left int
@@ -482,7 +484,6 @@ Explanation:
 "D" - Add 2 * 5 = 10 to the record, record is now [5, 10].
 "+" - Add 5 + 10 = 15 to the record, record is now [5, 10, 15].
 The total sum is 5 + 10 + 15 = 30.
-
 */
 func CalPoints(nums []string) int {
 	var res2 []int
@@ -618,12 +619,48 @@ func maxProduct(words []string) {
 	// }
 }
 
+func BinarySearch(a []int, target int) bool {
+	start := 0
+	end := len(a) - 1
+	for start <= end {
+		mid := (start + end) / 2
+		if a[mid] == target {
+			return true
+		} else if target > a[mid] {
+			start = mid + 1
+		} else {
+			end = mid - 1
+		}
+	}
+	return false
+
+}
+
+/*
+There are n employees in a company, numbered from 0 to n - 1. Each employee i has worked for hours[i] hours in the company.
+The company requires each employee to work for at least target hours.
+You are given a 0-indexed array of non-negative integers hours of length n and a non-negative integer target.
+Return the integer denoting the number of employees who worked at least target hours
+*/
+func NumberOfEmployeesWhoMetTarget(hours []int, target int) int {
+	var count int
+	for i := 0; i < len(hours); i++ {
+		if hours[i] >= target {
+			count++
+		}
+	}
+	return count
+
+}
+
 func main() {
+
+	// fmt.Println(NumberOfEmployeesWhoMetTarget([]int{0, 1, 2, 3, 4}, 2))
 
 	// fmt.Println(strings.ContainsAny("vinay", "kummr"))
 
-	a := []string{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"}
-	maxProduct(a)
+	// a := []string{"abcw", "baz", "foo", "bar", "xtfn", "abcdef"}
+	// maxProduct(a)
 	// fmt.Println(strings.ContainsAny(a[0], a[4]))
 	// a := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
 
@@ -650,5 +687,4 @@ func main() {
 	// b := []int{9, 4, 9, 8, 4}
 	// fmt.Println(intersect(a, b))
 	// findDisappearedNumbers(a)
-
 }
