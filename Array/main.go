@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"math/rand"
 	"sort"
 	"strconv"
 	"strings"
@@ -653,7 +654,22 @@ func NumberOfEmployeesWhoMetTarget(hours []int, target int) int {
 
 }
 
+func MakeRandomInts(n int) []int {
+	rand.Seed(10)
+	ints := make([]int, n)
+	for i := 0; i < n; i++ {
+		ints[i] = rand.Intn(n)
+	}
+	return ints
+}
+
+func RandomInts(n int) int {
+	return rand.Intn(n)
+}
+
 func main() {
+	// fmt.Println(rand.Intn(10))
+	// fmt.Println(makeRandomInts(10))
 
 	// fmt.Println(NumberOfEmployeesWhoMetTarget([]int{0, 1, 2, 3, 4}, 2))
 

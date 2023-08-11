@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/gin-gonic/gin v1.8.2
 	github.com/stretchr/testify v1.8.1
+	golang.org/x/exp v0.0.0-20230801115018-d63ba01acd4b
 )
 
 require (
