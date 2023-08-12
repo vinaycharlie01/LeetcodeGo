@@ -56,9 +56,12 @@ hello_world 5
 
 hello_world 6
 
+<<<<<<< HEAD
 
 hello
 <<<<<<< HEAD
+=======
+>>>>>>> 6098b6f (oktnen)
 echo "Hello, world!"
 hello_world 7
 
