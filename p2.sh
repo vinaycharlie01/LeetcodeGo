@@ -65,6 +65,8 @@ hello_world 7
 hello
 
 
+hello wol1 8
+hello wol1 8
 
 
 echo "Hello, world!"
