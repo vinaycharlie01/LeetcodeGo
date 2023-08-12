@@ -1,5 +1,7 @@
 package main
 
+import "golang.org/x/exp/slices"
+
 func Subsets(nums []int) [][]int {
 	res := make([][]int, 1)
 	for _, num := range nums {
@@ -111,7 +113,7 @@ func Backtrack(nums []int, start int, current []int, result *[][]int) {
 func alternatingSubarray(nums []int) int {
 	n := len(nums)
 	res, dp := -1, -1
-	for i := 1; i < n; i++ {
+	for i := 1; i < n; i+slices
 		if dp > 0 && nums[i] == nums[i-2] {
 			dp += 1
 		} else {

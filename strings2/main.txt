@@ -1,0 +1,57 @@
+Sure, here are the corresponding command-line commands for each of the flags listed in the output of go test --help:
+
+-bench pattern: To run benchmarks that match a specific pattern.
+Command: go test -bench=<pattern>
+
+-benchmem: To include memory allocation statistics in benchmark results.
+Command: go test -benchmem
+
+-benchtime d: To run each benchmark for a specific duration.
+Command: go test -benchtime=<duration>
+
+-cover: To enable coverage analysis.
+Command: go test -cover
+
+-covermode set: To set the mode for coverage analysis.
+Command: go test -covermode=set
+
+-coverpkg pattern: To apply coverage analysis separately to packages matching a regexp pattern.
+Command: go test -coverpkg=<pattern>
+
+-cpuprofile file: To write a CPU profile to a file.
+Command: go test -cpuprofile=<file>
+
+-count n: To run tests and benchmarks n times.
+Command: go test -count=<n>
+
+-failfast: To not start new tests after the first test failure.
+Command: go test -failfast
+
+-json: To produce machine-readable JSON output for tests.
+Command: go test -json
+
+-list pattern: To list tests, benchmarks, or examples matching a regexp pattern then exit.
+Command: go test -list=<pattern>
+
+-memprofile file: To write a memory profile to a file.
+Command: go test -memprofile=<file>
+
+-mutexprofile string: To write a mutex profile to a file.
+Command: go test -mutexprofile=<file>
+
+-parallel n: To run at most n tests in parallel.
+Command: go test -parallel=<n>
+
+-run pattern: To run only tests and examples matching a regexp pattern.
+Command: go test -run=<pattern>
+
+-short: To run a smaller test suite to save time.
+Command: go test -short
+
+-timeout d: To panic the test binary after a specified duration (timeout).
+Command: go test -timeout=<duration>
+
+-trace file: To write an execution trace to a file.
+Command: go test -trace=<file>
+
+You can use these commands along with the go test command to achieve specific testing and benchmarking configurations as described by each flag.

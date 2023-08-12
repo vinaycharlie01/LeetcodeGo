@@ -52,3 +52,33 @@ func TestSplitWordsBySeparator(t *testing.T) {
 		})
 	}
 }
+
+func TestFinalString(t *testing.T) {
+	type args struct {
+		s string
+	}
+	tests := []struct {
+		name  string
+		args  args
+		wantA string
+	}{
+		// TODO: Add test cases.
+		{
+			name:  "test1",
+			args:  args{s: "string"},
+			wantA: "rtsng",
+		},
+		{
+			name:  "test2",
+			args:  args{s: "poiinter"},
+			wantA: "ponter",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotA := FinalString(tt.args.s); gotA != tt.wantA {
+				t.Errorf("FinalString() = %v, want %v", gotA, tt.wantA)
+			}
+		})
+	}
+}
