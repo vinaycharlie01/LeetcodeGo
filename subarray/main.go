@@ -97,7 +97,7 @@ func GenerateSubarrays2(nums []int) [][]int {
 	return result
 }
 
-func backtrack(nums []int, start int, current []int, result *[][]int) {
+func Backtrack(nums []int, start int, current []int, result *[][]int) {
 	// Add a copy of the current subarray to the result
 	temp := make([]int, len(current))
 	copy(temp, current)
@@ -105,7 +105,7 @@ func backtrack(nums []int, start int, current []int, result *[][]int) {
 
 	for i := start; i < len(nums); i++ {
 		current = append(current, nums[i])    // Include the current element
-		backtrack(nums, i+1, current, result) // Recurse with next index
+		Backtrack(nums, i+1, current, result) // Recurse with next index
 		current = current[:len(current)-1]    // Exclude the current element
 	}
 }
