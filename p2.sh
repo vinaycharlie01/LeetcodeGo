@@ -27,6 +27,7 @@ echo "Hello, world!"
 hello_world 7
 
 hello
+<<<<<<< HEAD
 echo "Hello, world!"
 hello_world 7
 
@@ -97,3 +98,5 @@ hello_world 7
 
 hello
 hello_world 7
+=======
+>>>>>>> 579703b (okthen)
