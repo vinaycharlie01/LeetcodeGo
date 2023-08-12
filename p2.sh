@@ -28,6 +28,7 @@ echo "Hello, world!"
 hello_world 7
 
 hello
+<<<<<<< HEAD
 hello_world 7
 
 
@@ -107,3 +108,5 @@ hello wol1 8
 
 
 hello wol1 8
+=======
+>>>>>>> 5177cbb (okthen)
