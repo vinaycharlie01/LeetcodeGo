@@ -86,17 +86,6 @@ func reverseVowels(s string) {
 	// Print the result
 	fmt.Println(string(runeStr))
 }
-
-// mylist = list(s)
-
-//         # Iterate through the list with a step size of 2k
-//         for i in range(0, len(mylist), k + k):
-//             # Reverse the sublist of characters within the range of i to i + k
-//             mylist[i:k + i] = reversed(mylist[i:k + i])
-
-//         # Join the reversed list of characters back into a string and return it
-//         return "".join(mylist)
-
 func ReverseStr(s string, k int) string {
 	s1 := []rune(s)
 	i := 0
@@ -116,12 +105,3 @@ func ReverseStr(s string, k int) string {
 	return string(s1)
 
 }
-
-// // type Vector = cmp.Ordered
-// func main() {
-
-// 	// fmt.Println(Hello(19.20, 10))
-
-// 	reverseStr("hyzqyljrnigxvdtneasepfahmtyhlohwxmkqcdfehybknvdmfrfvtbsovjbdhevlfxpdaovjgunjqlimjkfnqcqnajmebeddqsgl", 39)
-
-// }
