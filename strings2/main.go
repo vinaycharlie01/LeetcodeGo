@@ -105,3 +105,8 @@ func ReverseStr(s string, k int) string {
 	return string(s1)
 
 }
+
+
+func main(){
+	
+}
