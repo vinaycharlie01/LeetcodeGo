@@ -106,7 +106,6 @@ func ReverseStr(s string, k int) string {
 
 }
 
+func main() {
 
-func main(){
-	
 }
