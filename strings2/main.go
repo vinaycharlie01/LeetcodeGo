@@ -107,5 +107,5 @@ func ReverseStr(s string, k int) string {
 }
 
 func main() {
-
+	fmt.Println("Hello, world!")
 }
