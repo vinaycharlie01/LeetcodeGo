@@ -82,3 +82,45 @@ func TestFinalString(t *testing.T) {
 		})
 	}
 }
+
+func Test_ReverseStr(t *testing.T) {
+	type args struct {
+		s string
+		k int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "Example 1",
+			args: struct {
+				s string
+				k int
+			}{
+				s: "abcdefg",
+				k: 2,
+			},
+			want: "bacdfeg",
+		},
+		{
+			name: "Example 2",
+			args: struct {
+				s string
+				k int
+			}{
+				s: "abcd",
+				k: 2,
+			},
+			want: "bacd",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := ReverseStr(tt.args.s, tt.args.k); got != tt.want {
+				t.Errorf("reverseStr() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
