@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -106,6 +107,85 @@ func ReverseStr(s string, k int) string {
 
 }
 
-func main() {
-	fmt.Println("Hello, world!")
+func Add(a string) string {
+
+	var right int
+	var left int
+	b := ""
+	// "abb24ccc8ddbbca1"
+	for right < len(a)-1 {
+		if a[right] == a[right+1] {
+			left++
+			right++
+		}
+		if a[right] != a[right+1] {
+			if !(a[right] >= '1' && a[right] <= '9') {
+				val := strconv.Itoa(left + 1)
+				b = b + (string(a[right]) + val)
+			} else {
+				b = b + string(a[right])
+			}
+			left = 0
+			right++
+		}
+		if right == len(a)-1 {
+			b = b + string(a[len(a)-1])
+		}
+	}
+	// ’a1b224c3d2b2c1a11’
+	return b
 }
+
+//	s := "abb24ccc8ddbbca1"
+//
+// fmt.Println(encode(s)) // output: "a1b224c3d2b2c1a11"
+func Encode(a string) string {
+	var right int
+	var left int
+	b := ""
+	for right < len(a)-1 {
+		if a[right] == a[right+1] {
+			left++
+		}
+		if a[right] != a[right+1] {
+			if !(a[right] >= '1' && a[right] <= '9') {
+				val := strconv.Itoa(left + 1)
+				b = b + (string(a[right]) + val)
+			}
+			left = 0
+		}
+		right++
+		if right == len(a)-1 {
+			if a[right-1] == a[len(a)-1] && !(a[right-1] >= '1' && a[right-1] <= '9') {
+				val := strconv.Itoa(left + 1)
+				b = b + string(a[right-1]) + val
+			}
+		}
+		if a[right] >= '1' && a[right] <= '9' {
+			b = b + string(a[right])
+		}
+	}
+	return b
+}
+
+func IsAcronym(words []string, s string) bool {
+	var a bool
+	if len(words) == len(s) {
+		for i, v := range words {
+			if s[i] == v[0] {
+				a = true
+			} else {
+				a = false
+				break
+			}
+		}
+	}
+	return a
+}
+
+// func main() {
+
+// 	fmt.Println(IsAcronym([]string{"never", "gonna", "give", "up", "on", "you"}, "ngguoy"))
+
+// 	// fmt.Println("Hello, world!")
+// }

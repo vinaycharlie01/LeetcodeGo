@@ -124,3 +124,48 @@ func Test_ReverseStr(t *testing.T) {
 		})
 	}
 }
+
+func TestIsAcronym(t *testing.T) {
+	type args struct {
+		words []string
+		s     string
+	}
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		// TODO: Add test cases.
+		{
+			name: "test1",
+			args: args{
+				words: []string{"alice", "bob", "charlie"},
+				s:     "abc",
+			},
+			want: true,
+		},
+		{
+			name: "test2",
+			args: args{
+				words: []string{"an", "apple"},
+				s:     "a",
+			},
+			want: false,
+		},
+		{
+			name: "test3",
+			args: args{
+				words: []string{"never", "gonna", "give", "up", "on", "you"},
+				s:     "ngguoy",
+			},
+			want: true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := IsAcronym(tt.args.words, tt.args.s); got != tt.want {
+				t.Errorf("IsAcronym() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
