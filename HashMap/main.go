@@ -22,7 +22,7 @@ Input: nums = [1,1]
 Output: [2]
 */
 
-func findDisappearedNumbers(nums []int) []int {
+func FindDisappearedNumbers(nums []int) []int {
 	hashmap := make(map[int]struct{})
 	var a []int
 	for _, v := range nums {
@@ -37,7 +37,7 @@ func findDisappearedNumbers(nums []int) []int {
 	return a
 }
 
-func vowelStrings(words []string, left int, right int) int {
+func VowelStrings(words []string, left int, right int) int {
 	hashmap := map[byte]struct{}{'a': {}, 'e': {}, 'i': {}, 'o': {}, 'u': {}}
 	count := 0
 	for i := left; i <= right; i++ {
@@ -84,7 +84,7 @@ func MergeSort(arr []int) []int {
 	return Merge(left, right)
 }
 
-func thirdMax(nums []int) int {
+func ThirdMax(nums []int) int {
 	hashmap := make(map[int]int)
 	for _, v := range nums {
 		hashmap[v]++

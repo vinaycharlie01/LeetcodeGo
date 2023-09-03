@@ -12,7 +12,7 @@ func TestIntersection(t *testing.T) {
 	Output := [][]int{{2}, {4, 9}, {1}, {}}
 	var a [][]int
 	for _, v := range Userinput {
-		Result := intersection(v[0], v[1])
+		Result := Intersection(v[0], v[1])
 		a = append(a, Result)
 	}
 	// fmt.Println(a)
@@ -42,7 +42,7 @@ func TestContainsDuplicate(t *testing.T) {
 	} else {
 		i := 0
 		for _, v := range chek {
-			result2 := containsDuplicate(v)
+			result2 := ContainsDuplicate(v)
 			require.Equal(t, result[i], result2)
 			i++
 		}
@@ -65,7 +65,7 @@ func TestCal(t *testing.T) {
 	}}
 
 	for _, v := range testcases {
-		result := containsDuplicate(v.input)
+		result := ContainsDuplicate(v.input)
 		if result != v.resut {
 
 		}
@@ -110,7 +110,7 @@ func TestFindKthLargest(t *testing.T) {
 		want:      1,
 	}}
 	for _, v := range a {
-		result := findKthLargest(v.userinput.data, v.userinput.k)
+		result := FindKthLargest(v.userinput.data, v.userinput.k)
 		if result != v.want {
 			t.Errorf("Error on %v: got %v, want %v", v.cases, result, v.want)
 		}
@@ -139,7 +139,7 @@ func TestString(t *testing.T) {
 	}
 
 	for _, v := range a {
-		result := findTheArrayConcVal(v.input)
+		result := FindTheArrayConcVal(v.input)
 		if result != v.want {
 			t.Errorf("%v this case will be error", v.cases)
 		}
@@ -181,7 +181,7 @@ func TestRemoveElement(t *testing.T) {
 		},
 	}
 	for _, v := range a {
-		result := removeElement(v.nums, v.val)
+		result := RemoveElement(v.nums, v.val)
 		if result != v.want {
 			t.Errorf("%v", v.cases)
 		}
@@ -223,7 +223,7 @@ func TestMergeArrays(t *testing.T) {
 	}
 	for _, v := range a {
 		t.Run(v.name, func(t *testing.T) {
-			if got := mergeArrays(v.input.num1, v.input.num2); reflect.DeepEqual(got, v.want) {
+			if got := MergeArrays(v.input.num1, v.input.num2); reflect.DeepEqual(got, v.want) {
 				t.Errorf("%v , got %v, want %v", v.name, got, v.want)
 			}
 		})
@@ -341,6 +341,66 @@ func TestNumberOfEmployeesWhoMetTarget(t *testing.T) {
 			result := NumberOfEmployeesWhoMetTarget(v.Input.Hours, v.Input.Target)
 			if result != v.Want {
 				t.Errorf("  got %v, want %v", v.Input, v.Want)
+			}
+		})
+	}
+}
+
+func TestWiggleSort(t *testing.T) {
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := WiggleSort(tt.args.nums); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("WiggleSort() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestFindMaxConsecutiveOnes(t *testing.T) {
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name      string
+		args      args
+		wantCount int
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotCount := FindMaxConsecutiveOnes(tt.args.nums); gotCount != tt.wantCount {
+				t.Errorf("FindMaxConsecutiveOnes() = %v, want %v", gotCount, tt.wantCount)
+			}
+		})
+	}
+}
+
+func TestFindDuplicates(t *testing.T) {
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := FindDuplicates(tt.args.nums); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("FindDuplicates() = %v, want %v", got, tt.want)
 			}
 		})
 	}

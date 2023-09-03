@@ -10,7 +10,7 @@ import (
 	"sync"
 )
 
-func intersection(nums1 []int, nums2 []int) []int {
+func Intersection(nums1 []int, nums2 []int) []int {
 	Hashmap := make(map[int]int)
 	for i, val := range nums2 {
 		Hashmap[val] = i
@@ -29,7 +29,7 @@ func intersection(nums1 []int, nums2 []int) []int {
 	return a
 }
 
-func containsDuplicate(nums []int) bool {
+func ContainsDuplicate(nums []int) bool {
 	hashmap := make(map[int]int)
 	for _, v := range nums {
 		_, ok := hashmap[v]
@@ -41,8 +41,7 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 
-func findKthLargest(nums []int, k int) int {
-
+func FindKthLargest(nums []int, k int) int {
 	var wg sync.WaitGroup
 	wg.Add(1)
 	go func() {
@@ -52,27 +51,7 @@ func findKthLargest(nums []int, k int) int {
 	return nums[len(nums)-k]
 }
 
-func wiggleSort(nums []int) {
-	// mid := len(nums) / 2
-	// l1 := nums[:mid]
-	// sort.Sort(sort.Reverse(sort.IntSlice(l1)))
-	// r1 := nums[mid:]
-	// sort.Sort(sort.Reverse(sort.IntSlice(r1)))
-	// fmt.Println(l1, r1)
-	// L := 0
-	// R := 0
-	// var a []int
-	// for L < len(l1) && R < len(r1) {
-	// 	a = append(a, r1[R])
-	// 	R++
-	// 	a = append(a, l1[L])
-	// 	L++
-	// }
-	// copy(nums, a)
-	// fmt.Println(a)
-}
-
-func wiggleSort2(nums []int) {
+func WiggleSort(nums []int) []int {
 	mid := len(nums) / 2
 	l1 := nums[:mid]
 	sort.Sort(sort.Reverse(sort.IntSlice(l1)))
@@ -89,10 +68,10 @@ func wiggleSort2(nums []int) {
 		L++
 	}
 	copy(nums, a)
-	fmt.Println(a)
+	return a
 }
 
-func findTheArrayConcVal(nums []int) int64 {
+func FindTheArrayConcVal(nums []int) int64 {
 	L := 0
 	R := len(nums) - 1
 	var a int
@@ -111,15 +90,13 @@ func findTheArrayConcVal(nums []int) int64 {
 	return int64(a)
 }
 
-func findMaxConsecutiveOnes(nums []int) {
-	// hashmap := make(map[int]int)
-	count := 0
+func FindMaxConsecutiveOnes(nums []int) (count int) {
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == 1 {
 			count++
 		}
 	}
-	fmt.Println(count)
+	return count
 }
 
 /*
@@ -135,7 +112,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 Note that the five elements can be returned in any order.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 */
-func removeElement(nums []int, val int) int {
+func RemoveElement(nums []int, val int) int {
 	i := 0
 	for true {
 		if i == len(nums) {
@@ -148,10 +125,9 @@ func removeElement(nums []int, val int) int {
 		i += 1
 	}
 	return len(nums)
-
 }
 
-func intersect(nums1 []int, nums2 []int) []int {
+func Intersect(nums1 []int, nums2 []int) []int {
 	hashmap := make(map[int]int)
 	for _, v := range nums1 {
 		hashmap[v]++
@@ -206,7 +182,7 @@ func chanarr(a [][]int, ch chan [][]int) {
 	ch <- c
 }
 
-func mergeArrays(nums1 [][]int, nums2 [][]int) [][]int {
+func MergeArrays(nums1 [][]int, nums2 [][]int) [][]int {
 	ch := make(chan [][]int)
 	var wg sync.WaitGroup
 	// go onarr(nums1, nums2, ch)
@@ -261,35 +237,7 @@ func mergeArrays(nums1 [][]int, nums2 [][]int) [][]int {
 	return b
 }
 
-// Input: nums = [0,1,7,4,4,5], lower = 3, upper = 6
-// Output: 6
-// Explanation: There are 6 fair pairs: (0,3), (0,4), (0,5), (1,3), (1,4), and (1,5).
-func countFairPairs(nums []int, lower int, upper int) {
-	// sort.IntSlice(nums).Sort()
-	// // fmt.Println(nums)
-	// L := 0
-	// R := len(nums) - 1
-	// for L <= R {
-	// 	mid := (L + R) / 2
-
-	// 	if nums[mid]
-
-	// 	L++
-	// 	R--
-	// }
-	// fmt.Println(hashmap)
-
-}
-
-func productExceptSelf(nums []int) {
-	// prifix := make([]int, len(nums)+1)
-	// fmt.Println(prifix)
-	// fmt.Println(nums)
-	// for i := 0; i <= len(nums); i++ {
-	// 	prifix[i] = prifix[i] + nums[i-1]
-	// }
-	// fmt.Println(prifix)
-
+func ProductExceptSelf(nums []int) []int {
 	prefix := make([]int, len(nums))
 	for i := 0; i < len(nums); i++ {
 		prefix[i] = nums[i]
@@ -297,7 +245,7 @@ func productExceptSelf(nums []int) {
 			prefix[i] = prefix[i] + prefix[i-1]
 		}
 	}
-	fmt.Println(prefix)
+	return prefix
 }
 
 // var m = make(map[any]any)
@@ -322,14 +270,13 @@ Output: [15,1,11,22]
 Explanation: The array leftSum is [0,10,14,22] and the array rightSum is [15,11,3,0].
 The array answer is [|0 - 15|,|10 - 11|,|14 - 3|,|22 - 0|] = [15,1,11,22].
 */
-
-func leftRigthDifference(nums []int) []int {
-	fmt.Println(nums)
+func LeftRigthDifference(nums []int) []int {
+	// fmt.Println(nums)
 	prifix := make([]int, len(nums)+1)
 	for i := 1; i < len(nums); i++ {
 		prifix[i] = prifix[i-1] + nums[i-1]
 	}
-	fmt.Println(prifix)
+	// fmt.Println(prifix)
 	b := nums
 	for i, j := 0, len(b)-1; i < j; i, j = i+1, j-1 {
 		b[i], b[j] = b[j], b[i]
@@ -340,8 +287,7 @@ func leftRigthDifference(nums []int) []int {
 	}
 	prifix = prifix[:len(prifix)-1]
 	prifix2 = prifix2[:len(prifix2)-1]
-	fmt.Println(prifix, prifix2)
-
+	// fmt.Println(prifix, prifix2)
 	start := 0
 	end := len(nums) - 1
 	var a []int
@@ -353,89 +299,9 @@ func leftRigthDifference(nums []int) []int {
 	return a
 }
 
-func Add(a string) {
-
-	var right int
-	var left int
-	b := ""
-	// "abb24ccc8ddbbca1"
-	for right < len(a)-1 {
-		if a[right] == a[right+1] {
-			left++
-			right++
-		}
-		if a[right] != a[right+1] {
-			if !(a[right] >= '1' && a[right] <= '9') {
-				val := strconv.Itoa(left + 1)
-				b = b + (string(a[right]) + val)
-			} else {
-				b = b + string(a[right])
-			}
-			left = 0
-			right++
-		}
-		if right == len(a)-1 {
-			b = b + string(a[len(a)-1])
-		}
-	}
-	// ’a1b224c3d2b2c1a11’
-	fmt.Println(b)
-}
-
-//	s := "abb24ccc8ddbbca1"
-//
-// fmt.Println(encode(s)) // output: "a1b224c3d2b2c1a11"
-func Encode(a string) {
-	var right int
-	var left int
-	b := ""
-	for right < len(a)-1 {
-		if a[right] == a[right+1] {
-			left++
-		}
-		if a[right] != a[right+1] {
-			if !(a[right] >= '1' && a[right] <= '9') {
-				val := strconv.Itoa(left + 1)
-				b = b + (string(a[right]) + val)
-			}
-			left = 0
-		}
-		right++
-		if right == len(a)-1 {
-			if a[right-1] == a[len(a)-1] && !(a[right-1] >= '1' && a[right-1] <= '9') {
-				val := strconv.Itoa(left + 1)
-				b = b + string(a[right-1]) + val
-			}
-		}
-		if a[right] >= '1' && a[right] <= '9' {
-			b = b + string(a[right])
-		}
-	}
-
-	// ’a1b224c3d2b2c1a11’
-	fmt.Println(b)
-}
-
-func passThePillow(n int, time int) {
-	i := 0
-	m := make([]int, n+1)
-	count := 0
-
-	for i < time+1 {
-		if count > len(m) {
-			fmt.Println(count)
-			count--
-		}
-		count++
-		i++
-	}
-	fmt.Println(m)
-}
-
-func rotate(s []int, n int) {
+func Rotate(s []int, n int) []int {
 	// [1, 2, 3, 4, 5, 6, 7] 7.3
 	var b []int
-
 	if n > 0 {
 		n = n % len(s)
 		fmt.Println(n)
@@ -444,7 +310,7 @@ func rotate(s []int, n int) {
 		n = -n % len(s)
 		b = append(s[n:], s[:n]...)
 	}
-	fmt.Println(b)
+	return b
 }
 
 // func main() {
@@ -456,7 +322,7 @@ func rotate(s []int, n int) {
 
 // }
 
-func groupAnagrams(a []string) [][]string {
+func GroupAnagrams(a []string) [][]string {
 	dp := make(map[string][]string)
 	for i1 := 0; i1 < len(a); i1++ {
 		b := []byte(a[i1])
@@ -467,7 +333,6 @@ func groupAnagrams(a []string) [][]string {
 		dp[string(b)] = append(dp[string(b)], a[i1])
 		// fmt.Println(b[i1])
 	}
-
 	var s [][]string
 	for _, v := range dp {
 		s = append(s, v)
@@ -543,7 +408,7 @@ func IsMonotonic(nums []int) bool {
 	return a
 }
 
-func MoveZeroes(nums []int) {
+func MoveZeroes(nums []int) []int {
 	for i := 0; i < len(nums); i++ {
 		if nums[i] == 0 {
 			nums = append(nums[:i], nums[i+1:]...)
@@ -551,10 +416,10 @@ func MoveZeroes(nums []int) {
 		}
 
 	}
-	fmt.Println(nums)
+	return nums
 }
 
-func Rotate2(matrix [][]int) {
+func Rotate2(matrix [][]int) [][]int {
 	var b [][]int
 	for i := 0; i < len(matrix); i++ {
 		var a []int
@@ -564,6 +429,7 @@ func Rotate2(matrix [][]int) {
 		b = append(b, a)
 	}
 	copy(matrix, b)
+	return b
 }
 
 func IsWinner(player1 []int, player2 []int) int {
@@ -598,8 +464,7 @@ func IsWinner(player1 []int, player2 []int) int {
 	}
 }
 
-func maxProduct(words []string) {
-	// var a1 []int
+func maxProduct(words []string) int {
 	var a int
 	for i := 0; i < len(words); i++ {
 		for j := len(words) - 1; j >= i; j-- {
@@ -611,13 +476,14 @@ func maxProduct(words []string) {
 			}
 		}
 	}
-	fmt.Println(a)
-	// sort.Ints(a1)
-	// if sort.Ints(a1); a1 != nil {
-	// 	fmt.Println(a1[len(a1)-1])
-	// } else {
-	// 	fmt.Println(0)
-	// }
+	return a
+	// fmt.Println(a)
+	// // sort.Ints(a1)
+	// // if sort.Ints(a1); a1 != nil {
+	// // 	fmt.Println(a1[len(a1)-1])
+	// // } else {
+	// // 	fmt.Println(0)
+	// // }
 }
 
 func BinarySearch(a []int, target int) bool {
@@ -667,7 +533,134 @@ func RandomInts(n int) int {
 	return rand.Intn(n)
 }
 
+func MinAbsoluteDifference(nums []int, x int) int {
+	var a int = math.MaxInt
+	fmt.Println(a)
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if int(math.Abs(float64(i-j))) >= x {
+				b := int(math.Abs(float64(nums[i] - nums[j])))
+				if b < a {
+					a = b
+				}
+			}
+
+		}
+	}
+	return a
+
+}
+
+func FindDuplicates(nums []int) []int {
+	var duplicates []int
+	for _, num := range nums {
+		if nums[abs(num)-1] < 0 {
+			duplicates = append(duplicates, num)
+		} else {
+			nums[abs(num)-1] = -nums[abs(num)-1]
+		}
+	}
+
+	return duplicates
+}
+
+func abs(num int) int {
+	if num < 0 {
+		return -num
+	}
+	return num
+}
+
+/*
+You are given a 0-indexed integer array nums. You have to find the maximum sum of a pair of numbers from nums such that the maximum digit in both numbers are equal.
+Return the maximum sum or -1 if no such pair exists.
+
+Example 1:
+
+Input: nums = [51,71,17,24,42]
+Output: 88
+Explanation:
+For i = 1 and j = 2, nums[i] and nums[j] have equal maximum digits with a pair sum of 71 + 17 = 88.
+For i = 3 and j = 4, nums[i] and nums[j] have equal maximum digits with a pair sum of 24 + 42 = 66.
+It can be shown that there are no other pairs with equal maximum digits, so the answer is 88.
+
+Example 2:
+
+Input: nums = [1,2,3,4]
+Output: -1
+Explanation: No pair exists in nums with equal maximum digits.
+*/
+func MaxSum(nums []int) {
+	hashmap := make(map[int][]int)
+	for i := 0; i < len(nums); i++ {
+		var arr []int
+		n := nums[i]
+		var a int
+		for n > 0 {
+			r := n % 10
+			arr = append(arr, r)
+			a = a*10 + r
+			n /= 10
+			// arr = append(arr, r)
+		}
+		fmt.Println(a)
+		// sort.Ints(arr)
+		// fmt.Println(v)
+		hashmap[nums[i]] = arr
+
+		// fmt.Println(nums[i], a)
+		// if reflect.DeepEqual(nums[i], a) {
+		// 	fmt.Println(nums[i], a)
+		// }
+
+		// v := maps.Values(hashmap)
+		//
+
+		// hashmap[i] = arr
+
+	}
+
+	// v := maps.Values(hashmap)
+	// fmt.Println(v)
+	// // fmt.Println(slices.Contains(v, arr))
+	// fmt.Println(slices.ContainsFunc(v, func(i []int) bool {
+	// 	return reflect.DeepEqual(arr, i)
+	// }))
+}
+
 func main() {
+	MaxSum([]int{51, 71, 17, 24, 42, 17})
+
+	// a := []int{1, 1, 2}
+	// fmt.Println(FindDuplicates(a))
+	// a := map[int]int{0: 0, 1: 1, 2: 2}
+
+	// m := map[string]int{
+	// 	"one":   1,
+	// 	"two":   2,
+	// 	"three": 3,
+	// 	"four":  4,
+	// }
+	// n := map[string]int{
+	// 	"one":   1,
+	// 	"two":   2,
+	// 	"three": 3,
+	// 	"four":  6,
+	// }
+
+	// fmt.Println(time.Now().UTC().UTC())
+	// maps.DeleteFunc(m, func(k string, v int) bool {
+	// 	return v == 2
+	// })
+	// time.UTC()
+	// fmt.Println(maps.Equal(m, n))
+	// fmt.Println(maps.Keys(m))
+	// fmt.Println(maps.Values(m))
+	// // maps.Clear[]()
+	// fmt.Println(reflect.DeepEqual(m, n))
+	// fmt.Println(m)
+
+	// fmt.Println(MinAbsoluteDifference([]int{330702844, 313481959, 239224564, 609763700, 170531905}, 0))
 	// fmt.Println(rand.Intn(10))
 	// fmt.Println(makeRandomInts(10))
 
