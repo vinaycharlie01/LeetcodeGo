@@ -628,6 +628,18 @@ func MaxSum(nums []int) {
 	// }))
 }
 
+
+func countSeniors(details []string) int {
+	var count int
+	for _, v := range details {
+		val, _ := strconv.Atoi(v[11:13])
+		if val > 60 {
+			count++
+		}
+	}
+	return count
+}
+
 func main() {
 	MaxSum([]int{51, 71, 17, 24, 42, 17})
 
