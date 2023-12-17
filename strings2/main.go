@@ -30,6 +30,16 @@ func Reverse(a string) string {
 }
 
 
+func minimizedStringLength(s string) int {
+	hash := make(map[rune]struct{})
+	for _, v := range s {
+		hash[v] = struct{}{}
+	}
+	return len(hash)
+
+}
+
+
 func minLength(s string) int {
 	b := []byte(s)
 	var a bool
