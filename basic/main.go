@@ -58,7 +58,7 @@ func work(ch chan struct{}) {
 func main() {
 
 	ch := make(chan struct{})
-
+// google ide
 	go work(ch)
 	ch <- struct{}{}
 
