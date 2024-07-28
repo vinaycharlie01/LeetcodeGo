@@ -1,5 +1,7 @@
 package main
 
+import "reflect"
+
 func Hash(arr []int, target int) []int {
 	hashmap := make(map[int]int)
 	var a []int
@@ -99,4 +101,21 @@ func ThirdMax(nums []int) int {
 	} else {
 		return a[len(a)-3]
 	}
+}
+
+func canConstruct(ransomNote string, magazine string) bool {
+
+	hashmap := make(map[rune]int)
+	for _, v := range ransomNote {
+		hashmap[v]++
+	}
+	hasmap2 := map[rune]int{}
+	for _, v := range magazine {
+		val2, _ := hasmap2[v]
+		if val, ok := hashmap[v]; ok && val2 < val {
+			hasmap2[v]++
+		}
+	}
+	return reflect.DeepEqual(hashmap, hasmap2)
+
 }
