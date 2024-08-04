@@ -8,7 +8,7 @@ Let's walk through finding the Longest Increasing Subsequence (LIS) for the sequ
 **Initialize the dp array:**
 Start with an array dp where each position is initialized to 1, because the smallest increasing subsequence for any single element is the element itself.
 
-```
+```go
 dp = [1, 1, 1, 1, 1, 1, 1, 1]
 ```
 
@@ -18,7 +18,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     There are no previous elements to compare with.
     `dp[0] remains 1.`
 
-    ```
+    ```go
     dp = [1, 1, 1, 1, 1, 1, 1, 1]
     ```
 
@@ -28,7 +28,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     Compare with 10:
     9 < 10, so no update.
     `dp[1] remains 1.`
-    ```
+    ```go
     dp = [1, 1, 1, 1, 1, 1, 1, 1]
     ```
     
@@ -39,7 +39,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     2 < 9, so no update.
     `dp[2] remains 1.`
 
-    ```
+    ```go
     dp = [1, 1, 1, 1, 1, 1, 1, 1]
     ```
 - **Element at index 3 (5):**
@@ -50,7 +50,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     5 > 2, so update dp[3] to dp[2] + 1 = 2.
     `dp[3] is updated to 2.`
 
-    ```
+    ```go
     dp = [1, 1, 1, 2, 1, 1, 1, 1]
     ```
 
@@ -64,7 +64,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     `dp[4] is updated to 2.`
 
 
-    ```
+    ```go
     dp = [1, 1, 1, 2, 2, 1, 1, 1]
     ```
 
@@ -78,7 +78,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     7 > 3, so no further update.
     `dp[5] is updated to 3.`
 
-    ```
+    ```go
     dp = [1, 1, 1, 2, 2, 3, 1, 1]
     ```
 
@@ -93,7 +93,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     101 > 7, so update dp[6] to dp[5] + 1 = 4.
     `dp[6] is updated to 4.`
 
-    ```
+    ```go
     dp = [1, 1, 1, 2, 2, 3, 4, 1]
 
     ```
@@ -111,14 +111,14 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
     `dp[7] is updated to 4.`
 
 
-    ```
+    ```go
     dp = [1, 1, 1, 2, 2, 3, 4, 4]
     ```
 
 
 **Final dp array:**
 
-```
+```go
 dp = [1, 1, 1, 2, 2, 3, 4, 4]
 
 ```
@@ -131,10 +131,7 @@ dp = [1, 1, 1, 2, 2, 3, 4, 4]
 - Time complexity:$$O(n)$$
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
 - Space complexity:$$O(n^2)$$
-```
-
-
-
+```go
 func lengthOfLIS(nums []int) int {
    if len(nums) == 0 {
 		return 0
@@ -164,7 +161,10 @@ func lengthOfLIS(nums []int) int {
 # Minimize Approach
 
 Let's use the example 
-    nums := []int{10, 9, 2, 5, 3, 7, 101, 18} and see how the code works step by step.
+```go    
+nums := []int{10, 9, 2, 5, 3, 7, 101, 18} 
+```
+and see how the code works step by step.
 
 **Initialization:**
    stack starts with [10].
@@ -205,7 +205,7 @@ Replace 101 with 18. So, stack becomes [2, 3, 7, 18].**
 - Space complexity:$$O(logn)$$
 
 # Code
-```
+```go
 func lengthOfLIS(nums []int) int {
 if len(nums) == 0 {
 		return 0
