@@ -128,9 +128,10 @@ dp = [1, 1, 1, 2, 2, 3, 4, 4]
 
 
 # Complexity
-- Time complexity:$$O(n)$$
-<!-- Add your time complexity here, e.g. $$O(n)$$ -->
-- Space complexity:$$O(n^2)$$
+- Time complexity:O(n^n)
+
+- Space complexity:O(n)
+
 ```go
 func lengthOfLIS(nums []int) int {
    if len(nums) == 0 {
@@ -199,10 +200,9 @@ and see how the code works step by step.
 Replace 101 with 18. So, stack becomes [2, 3, 7, 18].**
 
 # Complexity
-- Time complexity:$$O(nlogn)$$
+- Time complexity:O(nlogn)
 
-
-- Space complexity:$$O(logn)$$
+- Space complexity:O(n)
 
 # Code
 ```go
