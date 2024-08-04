@@ -15,6 +15,7 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
 # **Process each element:**
 
 - **Element at index 0 (10):**
+   
     There are no previous elements to compare with.
     `dp[0] remains 1.`
 
@@ -25,95 +26,131 @@ dp = [1, 1, 1, 1, 1, 1, 1, 1]
 
 - **Element at index 1 (9):**
 
-    Compare with 10:
-    9 < 10, so no update.
-    `dp[1] remains 1.`
-    ```go
-    dp = [1, 1, 1, 1, 1, 1, 1, 1]
-    ```
+        Compare with 10:
+
+        9 < 10, so no update.
+
+        `dp[1] remains 1.`
+
+        ```go
+        dp = [1, 1, 1, 1, 1, 1, 1, 1]
+        ```
     
 - **Element at index 2 (2):**
 
-    Compare with 10 and 9:
-    2 < 10, so no update.
-    2 < 9, so no update.
-    `dp[2] remains 1.`
+        Compare with 10 and 9:
 
-    ```go
-    dp = [1, 1, 1, 1, 1, 1, 1, 1]
-    ```
+        2 < 10, so no update.
+
+        2 < 9, so no update.
+
+        `dp[2] remains 1.`
+
+        ```go
+        dp = [1, 1, 1, 1, 1, 1, 1, 1]
+        ```
 - **Element at index 3 (5):**
 
-    Compare with 10, 9, and 2:
-    5 < 10, so no update.
-    5 < 9, so no update.
-    5 > 2, so update dp[3] to dp[2] + 1 = 2.
-    `dp[3] is updated to 2.`
+        Compare with 10, 9, and 2:
 
-    ```go
-    dp = [1, 1, 1, 2, 1, 1, 1, 1]
-    ```
+        5 < 10, so no update.
+
+        5 < 9, so no update.
+
+        5 > 2, so update dp[3] to dp[2] + 1 = 2.
+
+        `dp[3] is updated to 2.`
+
+        ```go
+        dp = [1, 1, 1, 2, 1, 1, 1, 1]
+        ```
 
 - **Element at index 4 (3):**
 
-    Compare with 10, 9, 2, and 5:
-    3 < 10, so no update.
-    3 < 9, so no update.
-    3 > 2, so update dp[4] to dp[2] + 1 = 2.
-    3 < 5, so no further update.
-    `dp[4] is updated to 2.`
+        Compare with 10, 9, 2, and 5:
+
+        3 < 10, so no update.
+
+        3 < 9, so no update.
+
+        3 > 2, so update dp[4] to dp[2] + 1 = 2.
+
+        3 < 5, so no further update.
+
+        `dp[4] is updated to 2.`
 
 
-    ```go
-    dp = [1, 1, 1, 2, 2, 1, 1, 1]
-    ```
+        ```go
+        dp = [1, 1, 1, 2, 2, 1, 1, 1]
+        ```
 
 - **Element at index 5 (7):**
 
-    Compare with 10, 9, 2, 5, and 3:
-    7 < 10, so no update.
-    7 < 9, so no update.
-    7 > 2, so update dp[5] to dp[2] + 1 = 2.
-    7 > 5, so update dp[5] to dp[3] + 1 = 3.
-    7 > 3, so no further update.
-    `dp[5] is updated to 3.`
+        Compare with 10, 9, 2, 5, and 3:
 
-    ```go
-    dp = [1, 1, 1, 2, 2, 3, 1, 1]
-    ```
+        7 < 10, so no update.
+
+        7 < 9, so no update.
+
+        7 > 2, so update dp[5] to dp[2] + 1 = 2.
+
+        7 > 5, so update dp[5] to dp[3] + 1 = 3.
+
+        7 > 3, so no further update.
+
+        `dp[5] is updated to 3.`
+
+        ```go
+        dp = [1, 1, 1, 2, 2, 3, 1, 1]
+        ```
 
 - **Element at index 6 (101):**
 
-    Compare with 10, 9, 2, 5, 3, and 7:
-    101 > 10, so update dp[6] to dp[0] + 1 = 2.
-    101 > 9, so no further update.
-    101 > 2, so no further update.
-    101 > 5, so update dp[6] to dp[3] + 1 = 3.
-    101 > 3, so no further update.
-    101 > 7, so update dp[6] to dp[5] + 1 = 4.
-    `dp[6] is updated to 4.`
+        Compare with 10, 9, 2, 5, 3, and 7:
 
-    ```go
-    dp = [1, 1, 1, 2, 2, 3, 4, 1]
+        101 > 10, so update dp[6] to dp[0] + 1 = 2.
 
-    ```
+        101 > 9, so no further update.
+
+        101 > 2, so no further update.
+
+        101 > 5, so update dp[6] to dp[3] + 1 = 3.
+
+        101 > 3, so no further update.
+
+        101 > 7, so update dp[6] to dp[5] + 1 = 4.
+
+        `dp[6] is updated to 4.`
+
+        ```go
+        dp = [1, 1, 1, 2, 2, 3, 4, 1]
+
+        ```
 
 - **Element at index 7 (18):**
 
-    Compare with 10, 9, 2, 5, 3, 7, and 101:
-    18 > 10, so update dp[7] to dp[0] + 1 = 2.
-    18 > 9, so no further update.
-    18 > 2, so no further update.
-    18 > 5, so update dp[7] to dp[3] + 1 = 3.
-    18 > 3, so no further update.
-    18 > 7, so update dp[7] to dp[5] + 1 = 4.
-    18 < 101, so no further update.
-    `dp[7] is updated to 4.`
+        Compare with 10, 9, 2, 5, 3, 7, and 101:
+        
+        18 > 10, so update dp[7] to dp[0] + 1 = 2.
 
+        18 > 9, so no further update.
 
-    ```go
-    dp = [1, 1, 1, 2, 2, 3, 4, 4]
-    ```
+        18 > 2, so no further update.
+
+        18 > 5, so update dp[7] to dp[3] + 1 = 3.
+
+        18 > 3, so no further update.
+
+        18 > 7, so update dp[7] to dp[5] + 1 = 4.
+
+        18 < 101, so no further update.
+
+        
+        `dp[7] is updated to 4.`
+
+        ```go
+        dp = [1, 1, 1, 2, 2, 3, 4, 4]
+        ```
 
 
 **Final dp array:**
